@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "title": "Clean Car",
+        "body": "Use Soap and put your back into it",
+        "priority": "low",
+        "status": "Queue",
+        "createdBy": "Jaynee",
+        "AssignedTo": "Shad"
+    },
+    {
+        "id": 2,
+        "title": "Pay bills",
+        "body": "Credit card bills due this month",
+        "priority": "high",
+        "status": "In Progress",
+        "createdBy": "Shad",
+        "AssignedTo": "Jaynee"
+    },
+    {
+        "id": 4,
+        "title": "Male Strip",
+        "body": "Earn money, don't be homeless",
+        "priority": "medium",
+        "status": "In Progress",
+        "createdBy": "Joe",
+        "AssignedTo": "John Joe"
+    },
+    {
+        "id": 3,
+        "title": "Eat a Meal",
+        "body": "Twice a day",
+        "priority": "low",
+        "status": "Done",
+        "createdBy": "Lagrimas",
+        "AssignedTo": "Shadrach"
+    }
+]
