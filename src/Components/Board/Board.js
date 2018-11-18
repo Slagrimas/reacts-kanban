@@ -1,12 +1,15 @@
 import React from 'react';
 
 const Board = props => {
-    console.log('Kaboom',props)
-    return(
-        <header className="App-Title">
-        {/* <h1 className="h1-class">{title}</h1> */}
-        </header>
-    )
-}
+    console.log('board props', props)
+    // const { title, author } = props;
+    return (
+        <button>
+            {/* <h3>{title}</h3>
+            <h4>{author}</h4> */}
+        </button>
+    );
+};
+
 export default Board;
 
