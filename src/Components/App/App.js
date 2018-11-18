@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
+import Board from '../Board';
 import Column from '../Column'
 import Card from '../Card/'
-import Board from '../Board';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    console.log('props', props)
     this.state = {
       queueItems: [
         {
@@ -16,8 +15,8 @@ class App extends Component {
           "body": "Put your back into it",
           "priority": "low",
           "status": "Queue",
-          "createdBy": "Bob",
-          "AssignedTo": "John"
+          "createdBy": "Jaynee",
+          "AssignedTo": "Shad"
         }
       ],
       inProgressItems: [
@@ -57,12 +56,16 @@ class App extends Component {
   
   render() {
     console.log('this.state.queueItems', this.state.queueItems)
+    console.log('this.state.inProgressItems', this.state.inProgressItems)
+    console.log('this.state.doneItems', this.state.doneItems)
     return (
       <div className="Components">
         <h1>Shad React Kanaban</h1>
-        {this.state.queueItems}
-        {/* <Column />
-        <Card /> */}
+        <Board value={this.state.queueItems} />
+        <Column Card={this.state.queueItems} />
+         <Board value={this.state.inProgressItems} />
+        <Column Card={this.state.inProgressItems} />
+    
 
   
       </div>

@@ -1,13 +1,26 @@
 import React from 'react';
-import Card from '../Card'
+import Card from '../Card';
 
 const Column = props => {
+    console.log('Column Props', props)
     return (
         <div className="column-container">
-        <h1>In Queue</h1>
+            <h4> These are Columns </h4>
+            {
+                props.Card.map((card) => {
+                    return <Card
+                        title={card.title}
+                        body={card.body}
+                        priority={card.priority}
+                        status={card.status}
+                        createdBy={card.createdBy}
+                        AssignedTo={card.AssignedTo}
+                        className='card'
+                    />
+                })
+            }
         </div>
     )
 }
-
-
 export default Column;
+
