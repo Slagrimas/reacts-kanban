@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import Board from '../Board';
-import Column from '../Column'
-import Card from '../Card/'
+import Column from '../Column';
+import Card from '../Card/';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      queueItems: [
+      cards: [
         {
           "id": 1,
           "title": "Clean Car",
@@ -17,9 +17,7 @@ class App extends Component {
           "status": "Queue",
           "createdBy": "Jaynee",
           "AssignedTo": "Shad"
-        }
-      ],
-      inProgressItems: [
+        },
         {
           "id": 2,
           "title": "Pay bills",
@@ -37,9 +35,7 @@ class App extends Component {
           "status": "In Progress",
           "createdBy": "Paul",
           "AssignedTo": "Mark"
-        }
-      ],
-      doneItems: [
+        },
         {
           "id": 3,
           "title": "Pick Up Breakfast",
@@ -49,11 +45,20 @@ class App extends Component {
           "createdBy": "Sam",
           "AssignedTo": "Leo"
         },
+        {
+          "id": 5,
+          "title": "Pay Phone Bill",
+          "body": "Phones are important, must pay",
+          "priority": "high",
+          "status": "Done",
+          "createdBy": "Shad",
+          "AssignedTo": "Jay"
+        }
       ]
     }
   }
 
-  
+
   render() {
     console.log('this.state.queueItems', this.state.queueItems)
     console.log('this.state.inProgressItems', this.state.inProgressItems)
@@ -61,13 +66,8 @@ class App extends Component {
     return (
       <div className="Components">
         <h1>Shad React Kanaban</h1>
-        <Board value={this.state.queueItems} />
-        <Column Card={this.state.queueItems} />
-         <Board value={this.state.inProgressItems} />
-        <Column Card={this.state.inProgressItems} />
-    
+        <Board cards={this.state.cards} />
 
-  
       </div>
     );
   }
