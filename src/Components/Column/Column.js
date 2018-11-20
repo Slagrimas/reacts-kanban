@@ -13,6 +13,7 @@ const Column = props => {
                     })
                     .map((card) => {
                         return <Card
+                            key={card.id}
                             title={card.title}
                             body={card.body}
                             priority={card.priority}

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Board from '../Board';
-import Column from '../Column';
-import Card from '../Card/';
+// import Column from '../Column';
+// import Card from '../Card/';
 
 class App extends Component {
   constructor(props) {
@@ -57,17 +57,11 @@ class App extends Component {
       ]
     }
   }
-
-
   render() {
-    console.log('this.state.queueItems', this.state.queueItems)
-    console.log('this.state.inProgressItems', this.state.inProgressItems)
-    console.log('this.state.doneItems', this.state.doneItems)
     return (
       <div className="Components">
         <h1>Shad React Kanaban</h1>
         <Board cards={this.state.cards} />
-
       </div>
     );
   }
