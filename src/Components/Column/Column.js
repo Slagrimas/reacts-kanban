@@ -5,7 +5,7 @@ const Column = props => {
     console.log('Column Props', props)
     return (
         <div className="column-container">
-            <h4> {props.status} </h4>
+            <h4 className="status-title"> {props.status} </h4>
             {
                 props.cards
                     .filter(card => {

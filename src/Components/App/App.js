@@ -65,7 +65,7 @@ class App extends Component {
         "status": "Done",
         "createdBy": "Shad",
         "AssignedTo": "Jay"
-      }
+      },
     ]
     this.props.loadCards(mockCards);
   }
@@ -75,6 +75,7 @@ class App extends Component {
       <div className="Components">
         <h1>Shad's React Kanaban</h1>
         <Board cards={this.props.cards} />
+  
       </div>
     );
   }

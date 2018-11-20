@@ -2,29 +2,35 @@
   text-align: center;
 }
 
-.all-cards{
-  display: inline;
-  width: 100%;
-}
 .Components {
-  display: flex;
-  flex-flow: row nowrap;
   margin: 10px 0;
   background-color: #282c34;
-  min-height: 20vh;
-  display: flex;
-  flex-direction: column;
+  min-height: 100vh;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
-.column-container{
-display: inline;
+.status-title{
+  text-align: center;
+  color: cyan;
 }
+.status-title:hover{
+  transform: scale(1.5);
+}
+.status, .title{
+  color: cyan;
+}
+.column-container{
+display: inline-block;
+width: 33%;
+height: 100%;
+text-align: center;
+
+}
+
 .card-entry{
 display: inline-block;
-padding: 10px;
+padding: 15px;
 color: white;
 border: 1px solid white;
 transition: transform .2s;
