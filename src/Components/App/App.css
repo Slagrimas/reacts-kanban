@@ -2,8 +2,14 @@
   text-align: center;
 }
 
-
-.App-header {
+.all-cards{
+  display: inline;
+  width: 100%;
+}
+.Components {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 10px 0;
   background-color: #282c34;
   min-height: 20vh;
   display: flex;
@@ -13,10 +19,28 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.column-container{
+display: inline;
 }
+.card-entry{
+display: inline-block;
+padding: 10px;
+color: white;
+border: 1px solid white;
+transition: transform .2s;
+width: 350px;
+height: 200px;
+margin: 0 auto;
+}
+
+.card-entry:hover {
+  transform: scale(1.5);
+  background-color: #282c34;
+}
+
+  .App-link {
+    color: #61dafb;
+  }
 
 @keyframes App-logo-spin {
   from {
