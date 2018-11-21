@@ -44,7 +44,7 @@ router.route('/:id')
       related: ['title', 'body', 'priority', 'status', 'createdBy', 'AssignedTo']
     })
     .then(card => {
-            res.json(card);
+        res.json(card);
     })
     .catch(err => {
       console.log('err.message', err.message);

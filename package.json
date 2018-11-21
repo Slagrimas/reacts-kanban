@@ -22,7 +22,7 @@
     "db:migrate": "POSTGRES_HOSTNAME=localhost ./node_modules/.bin/knex migrate:latest",
     "db:rollback": "POSTGRES_HOSTNAME=localhost ./node_modules/.bin/knex migrate:rollback",
     "seed": "POSTGRES_HOSTNAME=localhost ./node_modules/.bin/knex seed:run",
-    "dev": "./node_modules/.bin/nodemon ./server/index.js",
+    "dev": "./node_modules/.bin/nodemon ./server/index.js --watch ./server/ --verbase",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
