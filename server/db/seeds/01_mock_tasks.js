@@ -10,7 +10,7 @@ exports.seed = function(knex, Promise) {
         {id: 3, title: 'Pay bills', body: 'Credit card bills due this month', priority: 'high', status: 'In Progress', createdBy: 'Bill', AssignedTo: 'Rich'},
         {id: 4, title: 'Go to work', body: 'Earn money, dont be homeless', priority: 'medium', status: 'In Progress', createdBy: 'Sam', AssignedTo: 'Leo'},
         {id: 5, title: 'Pick Up Breakfast', body: 'Most important meal of the day', priority: 'low', status: 'Done', createdBy: 'Lagrimas', AssignedTo: 'Lorenzo'},
-        {id: 6, title: 'groceries shopping', body: 'Pick up food for the week', priority: 'medium', status: 'done', createdBy: 'John', AssignedTo: 'Doe'}
+        {id: 6, title: 'groceries shopping', body: 'Pick up food for the week', priority: 'medium', status: 'Done', createdBy: 'John', AssignedTo: 'Doe'}
       ]);
     });
 };
