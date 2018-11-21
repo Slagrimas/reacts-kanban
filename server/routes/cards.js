@@ -29,10 +29,27 @@ router.route('/')
         return res.json(card);
     })
     .catch(err => {
-       return res.status(400).json({message: err.message, code: err.code})
+       return res.status(400).json({ message: err.message, code: err.code })
     })
 });
-    
+//The Backend Services JavaScript SDK utilizes Query objects to perform queries. A Query object is created by calling its constructor:
+//get a single card by id
+
+router.route('/:id')
+.get((req, res) => {
+  const id = req.params.id;
+  console.log('this is the id', id)
+  return Card.query({ where: { id: id } })
+  .fetchAll({
+      related: ['title', 'body', 'priority', 'status', 'createdBy', 'AssignedTo']
+    })
+    .then(card => {
+            res.json(card);
+    })
+    .catch(err => {
+      console.log('err.message', err.message);
+    });
+})
 
 module.exports = router;
 

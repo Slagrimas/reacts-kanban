@@ -52,7 +52,13 @@ margin: 0 auto;
   from {
     transform: rotate(0deg);
   }
-  to {
+  to {  
     transform: rotate(360deg);
   }
 }
+
+.add-card-form{
+  text-align: center;
+  margin-top: 350px;
+}
+

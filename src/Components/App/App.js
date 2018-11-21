@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import Board from '../Board';
+import AddCard from '../AddCard/AddCard';
 import { loadCards } from '../../actions/cardActions';
 import axios from 'axios';
 
@@ -27,6 +28,7 @@ class App extends Component {
       <div className="Components">
         <h1>Shad's React Kanaban</h1>
         <Board cards={this.props.cards} />
+        <AddCard />
 
       </div>
     );
@@ -49,29 +51,3 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 
-  //     render() {
-  //         return (
-  //             <div className="App">
-  //                 <BookListAppTitle title="Shadrach's Book Title" />
-  //                 <BookList books={this.props.books} />
-  //                 <AddBook />
-  //             </div>
-  //         )
-  //     };
-  // };
-
-
-  // const mapStateToProps = (state) => {
-  //     return {
-  //         books: state
-  //     }
-  // }
-
-  // const mapDispatchToProps = (dispatch) => {
-  //     return {
-  //         loadBooks: (books) => {
-  //             dispatch(loadBooks(books));
-  //         }
-  //     }
-  // }
-  // export default connect(mapStateToProps, mapDispatchToProps)(App);

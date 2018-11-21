@@ -3,16 +3,20 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import { addCard } from "../../actions/cardActions";
 
-class AddBook extends Component {
+class AddCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
             _id: 0,
             title: '',
-            author: ''
+            body: '',
+            priority: '',
+            status: '',
+            createdBy: '',
+            AssignedTo: '',
         };
         this.handleInput = this.handleInput.bind(this);
-        this.addNewBook = this.addNewBook.bind(this);
+        this.addNewCard = this.addNewCard.bind(this);
     }
     handleInput(event) {
         switch (event.target.id) {
@@ -21,7 +25,7 @@ class AddBook extends Component {
                 break;
 
             case "body":
-                this.setState({ author: event.target.value })
+                this.setState({ body: event.target.value })
                 break;
 
             case "priority":
@@ -52,14 +56,17 @@ class AddBook extends Component {
         }
         axios.post('/api/cards', data)
             .then(response => {
-
                 const card = response.data;
 
                 this.props.addCard(card)
 
                 this.setState({
                     title: '',
-                    author: ''
+                    body: '',
+                    priority: '',
+                    status: '',
+                    createdBy: '',
+                    AssignedTo: ''
                 })
             })
             .catch(err => {
@@ -67,16 +74,17 @@ class AddBook extends Component {
             })
     }
 
+
     render() {
         const { title, body, priority, status, createdBy, AssignedTo } = this.state
         return (
-            <div className="add-book-form">
-                <input type="text" id="title" value={title} onChange={this.handleInput} />
-                <input type="text" id="body" value={body} onChange={this.handleInput} />
-                <input type="text" id="priority" value={priority} onChange={this.handleInput} />
-                <input type="text" id="status" value={status} onChange={this.handleInput} />
-                <input type="text" id="createdBy" value={createdBy} onChange={this.handleInput} />
-                <input type="text" id="AssignedTo" value={AssignedTo} onChange={this.handleInput} />
+            <div className="add-card-form">
+                <input type="text" placeholder="title" id="title" value={title} onChange={this.handleInput} />
+                <input type="text" placeholder="body" id="body" value={body} onChange={this.handleInput} />
+                <input type="text" placeholder="priority" id="priority" value={priority} onChange={this.handleInput} />
+                <input type="text" placeholder="status" id="status" value={status} onChange={this.handleInput} />
+                <input type="text" placeholder="createdBy" id="createdBy" value={createdBy} onChange={this.handleInput} />
+                <input type="text" placeholder="AssignedTo" id="AssignedTo" value={AssignedTo} onChange={this.handleInput} />
                 <button onClick={this.addNewCard}>
                     Add Card
             </button>
