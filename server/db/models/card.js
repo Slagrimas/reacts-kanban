@@ -1,6 +1,6 @@
 const bookshelf = require('./bookshelf');
 
-class Book extends bookshelf.Model {
+class Card extends bookshelf.Model {
   get tableName() { return 'tasks'; }
 }
 

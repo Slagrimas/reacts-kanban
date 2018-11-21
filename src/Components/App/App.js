@@ -3,7 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import Board from '../Board';
 import { loadCards } from '../../actions/cardActions';
-import Column from '../Column';
+import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
