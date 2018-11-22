@@ -3,6 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import Board from '../Board';
 import AddCard from '../AddCard/AddCard';
+import EditCard from '../Edit Card/editCard'
 import { loadCards } from '../../actions/cardActions';
 import axios from 'axios';
 
@@ -28,7 +29,7 @@ class App extends Component {
         <h1>Shad's React Kanaban</h1>
         <Board cards={this.props.cards} />
         <AddCard />
-
+        <EditCard />
       </div>
     );
   }

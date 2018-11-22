@@ -51,5 +51,28 @@ router.route('/:id')
     });
 })
 
+.put((req, res) => {
+    let id = (req.params.id);
+    const title = req.body.title;
+    const body = req.body.body;
+    const priority = (req.body.priority);
+    const status = (req.body.status);
+    const createdBy = (req.body.createdBy);
+    const AssignedTo = (req.body.AssignedTo);
+    return new Card({ id: id })
+      .save({ title, body, priority, status, createdBy, AssignedTo })
+      .then(response => {
+        return response.refresh({
+          related: ['priority', 'status', 'created', 'assigned']
+        });
+      })
+      .then(cards => {
+        res.json(cards);
+      })
+      .catch(err => {
+        console.log('err.message', err.message);
+      });
+  })
+
 module.exports = router;
 
