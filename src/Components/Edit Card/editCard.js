@@ -64,8 +64,8 @@ class EditCardForm extends Component {
       assigned_to: ''
     });
     event.target = document.getElementsByClassName('EditCardForm-container');
-  }
-
+  } 
+  
   render() {
     //htmlFor property reflects the value of the for content property. That means that this script-accessible property is used to set and read the value of the content property for, which is the ID of the label's associated control element.
     return (

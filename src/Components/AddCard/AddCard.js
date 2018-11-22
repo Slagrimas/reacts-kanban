@@ -73,8 +73,7 @@ class AddCard extends Component {
                 console.log(err);
             })
     }
-
-
+ 
     render() {
         const { title, body, priority, status, createdBy, AssignedTo } = this.state
         return (

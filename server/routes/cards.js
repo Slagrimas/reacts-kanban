@@ -72,6 +72,19 @@ router.route('/:id')
                 console.log('err.message', err.message);
             });
     })
+    .delete((req, res) => {
+        const id = req.params.id;
+        return new Card({ id: id })
+          .destroy()
+          .then(cards => {
+            return Card.fetchAll({
+              related: ['priority', 'status', 'created', 'assigned']
+            }).then(cards => {
+              res.json(cards);
+            });
+          })
+          .catch(err => console.log(err));
+      });
 
 module.exports = router;
 
