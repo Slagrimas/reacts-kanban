@@ -5,3 +5,4 @@ class Card extends bookshelf.Model {
 }
 
 module.exports = bookshelf.model('Card', Card);
+

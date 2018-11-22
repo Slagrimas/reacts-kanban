@@ -13,10 +13,3 @@ exports.up = function(knex, Promise) {
 exports.down = function(knex, Promise) {
   return knex.schema.droptable('Users');
 };
-
-// id(Pk)	number	serial, not null, unique
-// first_name	string	not null
-// last_name	string	not null
-// email	string	not null
-// created_at	TS w/ TZ	not null
-// updated_at	TS w/ TZ	not null
