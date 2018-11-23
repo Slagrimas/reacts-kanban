@@ -1,9 +1,10 @@
 exports.up = function(knex, Promise) {
-    return knex.schema.createTable('statuses', table => {
+    return knex.schema.createTable('statuses', function(table) {
       table.increments();
       table.string('name').notNullable();
       table.integer('rank').notNullable();
-      table.timestamps(true, true);
+      table.timestamp('created_at').defaultTo(knex.fn.now());
+      table.timestamp('updated_at').defaultTo(knex.fn.now());
     });
   };
   

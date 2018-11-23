@@ -1,9 +1,11 @@
+
 exports.up = function(knex, Promise) {
-    return knex.schema.createTable('priorities', table => {
+    return knex.schema.createTable('priorities', function(table) {
       table.increments();
       table.string('name').notNullable();
       table.integer('rank').notNullable();
-      table.timestamps(true, true);
+      table.timestamp('created_at').defaultTo(knex.fn.now());
+      table.timestamp('updated_at').defaultTo(knex.fn.now());
     });
   };
   
