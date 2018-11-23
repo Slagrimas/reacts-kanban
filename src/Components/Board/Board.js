@@ -6,9 +6,9 @@ const Board = props => {
     return (
 
         <div className="Board">
-            <Column cards={props.cards} status="Queue" />
-            <Column cards={props.cards} status="In Progress" />
-            <Column cards={props.cards} status="Done" />
+            <Column cards={props.cards} status={1} />
+            <Column cards={props.cards} status={2} />
+            <Column cards={props.cards} status={3} />
         </div>
     );
 };

@@ -14,14 +14,14 @@ router.route('/')
             });
     })
     .post((req, res) => {
-        const { title, body, priority, status, createdBy, AssignedTo } = req.body;
+        const { title, body, priority_id, status_id, created_by, assigned_to } = req.body;
         return new Card({
             title,
             body,
-            priority,
-            status,
-            createdBy,
-            AssignedTo
+            priority_id,
+            status_id,
+            created_by,
+            assigned_to
         })
             .save()
             .then(card => {
@@ -40,7 +40,7 @@ router.route('/:id')
         console.log('this is the id', id)
         return Card.query({ where: { id: id } })
             .fetchAll({
-                related: ['title', 'body', 'priority', 'status', 'createdBy', 'AssignedTo']
+                related: ['title', 'body', 'priority', 'status', 'created_by', 'assigned_to']
             })
             .then(card => {
                 res.json(card);
@@ -56,13 +56,13 @@ router.route('/:id')
         const body = req.body.body;
         const priority = req.body.priority;
         const status = req.body.status;
-        const createdBy = req.body.createdBy;
-        const AssignedTo = req.body.AssignedTo;
+        const created_by = req.body.created_by;
+        const assigned_to = req.body.assigned_to;
         return new Card({ id: id })
-            .save({ title, body, priority, status, createdBy, AssignedTo })
+            .save({ title, body, priority, status, created_by, assigned_to })
             .then(response => {
                 return response.refresh({
-                    related: ['priority', 'status', 'created', 'assigned']
+                    related: ['priority', 'status', 'created_by', 'assigned_to']
                 });
             })
             .then(cards => {
@@ -78,7 +78,7 @@ router.route('/:id')
           .destroy()
           .then(cards => {
             return Card.fetchAll({
-              related: ['priority', 'status', 'created', 'assigned']
+              related: ['priority', 'status', 'created_by', 'assigned_to']
             }).then(cards => {
               res.json(cards);
             });

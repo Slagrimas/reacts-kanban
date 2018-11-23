@@ -5,24 +5,13 @@ import Board from '../Board';
 import AddCard from '../AddCard/AddCard';
 import EditCard from '../Edit Card/editCard'
 import { loadCards } from '../../actions/cardActions';
-import axios from 'axios';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
-    axios.get('/api/cards')
-      .then(response => {
-        console.log('cards ', response.data)
-        const cards = response.data;
-        this.props.loadCards(cards);
-
-      })
-      .catch(err => { console.log(err) });
-  }
-
+    console.log('this is props', this.props)
+      this.props.loadCards();
+    }
   render() {
     return (
       <div className="Components">
@@ -43,8 +32,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadCards: (cards) => {
-      dispatch(loadCards(cards));
+    loadCards: () => {
+      dispatch(loadCards());
     }
   }
 }

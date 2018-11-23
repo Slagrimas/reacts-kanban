@@ -9,17 +9,17 @@ const Column = props => {
             {  
                 props.cards
                     .filter(card => {
-                        return props.status === card.status
+                        return props.status === card.status_id
                     })
                     .map((card) => {
                         return <Card
                             key={card.id}
                             title={card.title}
                             body={card.body}
-                            priority={card.priority}
-                            status={card.status}
-                            createdBy={card.createdBy}
-                            AssignedTo={card.AssignedTo}
+                            priority={card.priority_id}
+                            status={card.status_id}
+                            createdBy={card.created_by}
+                            AssignedTo={card.assigned_to}
                             className='card'
                         />
                     })
@@ -28,6 +28,4 @@ const Column = props => {
     )
 }
 
-
 export default Column;
-

@@ -7,6 +7,7 @@ const initialState = [];
 const cardList = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_CARDS:
+        console.log('action cards', action.cards)
             return [...action.cards]; //same as state = [...action.books] return state
 
         case ADD_CARDS:
