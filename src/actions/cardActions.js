@@ -27,9 +27,22 @@ export const addCard = card => {
     }
 }
 
+// export const editCard = card => {
+//     return {
+//         type: EDIT_CARD,
+//         card
+//     }
+// }
+
 export const editCard = card => {
-    return {
-        type: EDIT_CARD,
-        card
-    }
-}
+    // console.log('card', card.id)
+    return dispatch => {
+      return axios.put(`/api/cards/${card.id}`, card).then(response => {
+        // console.log('response', response);
+        dispatch({
+          type: EDIT_CARD,
+          editCard: response.data
+        });
+      });
+    };
+  };

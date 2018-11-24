@@ -13,8 +13,17 @@ const cardList = (state = initialState, action) => {
         case ADD_CARDS:
             return [...state, action.card]
 
+        // case EDIT_CARD:
+        //     return action.payload;
         case EDIT_CARD:
-            return action.payload;
+      let zero = state[0];
+      state.map(card => {
+        if (card.id === Number(action.editCard.id)) {
+          state.splice(state.indexOf(card), 1);
+          state.push(action.editCard);
+        }
+      });
+      return [...state];
         default:
             return state
     }

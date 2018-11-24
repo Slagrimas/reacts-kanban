@@ -24,6 +24,9 @@ class EditCard extends Component {
   handleInputChange(event) {
     console.log('event.target', event.target);
     switch (event.target.id) {
+      case 'id':
+        this.setState({ id: event.value });
+        break;
       case 'title':
         this.setState({ title: event.target.value });
         break;
@@ -65,7 +68,6 @@ class EditCard extends Component {
       status_id: '',
       created_by: '',
       assigned_to: '',
-      editClick: true
     });
 
   }
@@ -76,6 +78,7 @@ class EditCard extends Component {
     return (
       <div>
         <div className="EditCardForm-container">
+          <input type="number" placeholder="id" id="id" value={this.state.id} onChange={this.handleInputChange} />
           <input type="text" placeholder="title" id="title" value={this.state.title} onChange={this.handleInputChange} />
           <input type="text" placeholder="body" id="body" value={this.state.body} onChange={this.handleInputChange} />
           <select
