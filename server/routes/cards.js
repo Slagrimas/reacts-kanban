@@ -56,15 +56,15 @@ router.route('/:id')
         let id = (req.params.id);
         const title = req.body.title;
         const body = req.body.body;
-        const priority = req.body.priority;
-        const status = req.body.status;
+        const priority_id = req.body.priority_id;
+        const status_id = req.body.status_id;
         const created_by = req.body.created_by;
         const assigned_to = req.body.assigned_to;
         return new Card({ id: id })
-            .save({ title, body, priority, status, created_by, assigned_to })
+            .save({ title, body, priority_id, status_id, created_by, assigned_to })
             .then(response => {
                 return response.refresh({
-                    related: ['priority', 'status', 'created_by', 'assigned_to']
+                    withRelated: ['priority', 'status', 'created', 'assigned']
                 });
             })
             .then(cards => {
@@ -80,7 +80,7 @@ router.route('/:id')
           .destroy()
           .then(cards => {
             return Card.fetchAll({
-              related: ['priority', 'status', 'created_by', 'assigned_to']
+              related: ['priority', 'status', 'created', 'assigned']
             }).then(cards => {
               res.json(cards);
             });

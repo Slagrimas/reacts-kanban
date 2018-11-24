@@ -2,21 +2,23 @@ import React, { Component } from 'react';
 import { editCard } from '../../actions/cardActions';
 import { connect } from 'react-redux';
 
-class EditCardForm extends Component {
+class EditCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: '',
       body: '',
-      priority: '',
-      status: '',
-      createdBy: '',
-      AssignedTo: ''
+      priority_id: '',
+      status_id: '',
+      created_by: '',
+      assigned_to: ''
     };
+
     console.log('edit props', props);
     this.editThisCard = this.editThisCard.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
+  //here we go here we go again.
 
   handleInputChange(event) {
     console.log('event.target', event.target);
@@ -27,17 +29,17 @@ class EditCardForm extends Component {
       case 'body':
         this.setState({ body: event.target.value });
         break;
-      case 'priority':
-        this.setState({ priority: event.target.value });
+      case 'priority_id':
+        this.setState({ priority_id: event.target.value });
         break;
-      case 'status':
-        this.setState({ status: event.target.value });
+      case 'status_id':
+        this.setState({ status_id: event.target.value });
         break;
-      case 'createdBy':
-        this.setState({ createdBy: event.target.value });
+      case 'created_by':
+        this.setState({ created_by: event.target.value });
         break;
-      case 'AssignedTo':
-        this.setState({ AssignedTo: event.target.value });
+      case 'assigned_to':
+        this.setState({ assigned_to: event.target.value });
         break;
       default:
         break;
@@ -48,80 +50,73 @@ class EditCardForm extends Component {
     const data = {
       title: this.state.title,
       body: this.state.body,
-      createdBy: this.state.createdBy,
-      AssignedTo: this.state.AssignedTo,
-      priority: this.state.priority,
-      status: this.state.status,
+      priority_id: this.state.priority_id,
+      status_id: this.state.status_id,
+      created_by: this.state.created_by,
+      assigned_to: this.state.assigned_to,
     }
     console.log('data', data);
     this.props.editCard(data);
     this.setState({
       title: '',
       body: '',
-      priority: '',
-      status: '',
-      createdBy: '',
+      priority_id: '',
+      status_id: '',
+      created_by: '',
       assigned_to: ''
     });
     event.target = document.getElementsByClassName('EditCardForm-container');
-  } 
-  
+  }
+
   render() {
     //htmlFor property reflects the value of the for content property. That means that this script-accessible property is used to set and read the value of the content property for, which is the ID of the label's associated control element.
     return (
       <div>
         <div className="EditCardForm-container">
-          <div htmlFor="title">Title:</div>
-          <input
-            type="text"
-            id="title"
-            value={this.state.title}
-            onChange={this.handleInputChange}
-          />
-          <div htmlFor="body">Body:</div>
-          <input
-            type="text"
-            id="body"
-            value={this.state.body}
-            onChange={this.handleInputChange}
-          />
-          <div htmlFor="priority">Priority & Status:</div>
+          <input type="number" placeholder="id" id="id" value={this.state.id} onChange={this.handleInputChange} />
+          <input type="text" placeholder="title" id="title" value={this.state.title} onChange={this.handleInputChange} />
+          <input type="text" placeholder="body" id="body" value={this.state.body} onChange={this.handleInputChange} />
           <select
-            id="priority"
-            value={this.state.priority}
+            id="priority_id"
+            value={this.state.priority_id}
             onChange={this.handleInputChange}
           >
-            <option value="">Please choose an option</option>
+            <option value="">Priority</option>
             <option value="1">High</option>
             <option value="2">Med</option>
             <option value="3">Low</option>
           </select>
 
           <select
-            id="status"
-            value={this.state.status}
+            id="status_id"
+            value={this.state.status_id}
             onChange={this.handleInputChange}
           >
-            <option value="">Please choose an option</option>
+            <option value="">Status</option>
             <option value="1">Queue</option>
             <option value="2">In Progress</option>
             <option value="3">Done</option>
           </select>
-          <div htmlFor="createdBy">CreatedBy</div>
-          <input
-            type="text"
-            id="createdBy"
-            value={this.state.createdBy}
+          <select
+            id="created_by"
+            value={this.state.created_by}
             onChange={this.handleInputChange}
-          />
-          <div htmlFor="AssignedTo"> AssignedTo </div>
-          <input
-            type="text"
-            name="AssignedTo"
-            id="AssignedTo"
-            value={this.state.AssignedTo}
+          >
+            <option value="">Created By</option>
+            <option value="1">Shad</option>
+            <option value="2">John</option>
+            <option value="3">Dwayne</option>
+          </select>
+          <select
+            id="assigned_to"
+            value={this.state.assigned_to}
             onChange={this.handleInputChange}
-          />
+          >
+            <option value="">Assign To</option>
+            <option value="1">Shad</option>
+            <option value="2">John</option>
+            <option value="3">Dwayne</option>
+          </select>
           <button onClick={this.editThisCard}>
             Edit Card
             </button>
@@ -133,7 +128,7 @@ class EditCardForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    cards: state.EditCardForm
+    cards: state.EditCard
   };
 };
 
@@ -148,4 +143,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(EditCardForm);
+)(EditCard);

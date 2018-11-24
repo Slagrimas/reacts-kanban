@@ -79,10 +79,30 @@ class AddCard extends Component {
             <div className="add-card-form">
                 <input type="text" placeholder="title" id="title" value={title} onChange={this.handleInput} />
                 <input type="text" placeholder="body" id="body" value={body} onChange={this.handleInput} />
-                <input type="text" placeholder="priority" id="priority_id" value={priority_id} onChange={this.handleInput} />
-                <input type="text" placeholder="status" id="status_id" value={status_id} onChange={this.handleInput} />
-                <input type="text" placeholder="created_by" id="created_by" value={created_by} onChange={this.handleInput} />
-                <input type="text" placeholder="assigned_to" id="assigned_to" value={assigned_to} onChange={this.handleInput} />
+                <select id="priority_id" value={priority_id} onChange={this.handleInput} 
+                > <option value="">Priority?</option>
+                <option value="1">High</option>
+                <option value="2">Medium</option>
+                <option value="3">Low</option>
+                </select>
+                <select id="status_id" value={status_id} onChange={this.handleInput} 
+                > <option value="">Status?</option>
+                <option value="1">Queue</option>
+                <option value="2">In Progress</option>
+                <option value="3">Done</option>
+                </select>
+                <select id="created_by" value={created_by} onChange={this.handleInput} 
+                > <option value="">Created By ?</option>
+                <option value="1">Shad</option>
+                <option value="2">John</option>
+                <option value="3">Dwayne</option>
+                </select>
+                <select id="assigned_to" value={assigned_to} onChange={this.handleInput} 
+                > <option value="">Assign To?</option>
+                <option value="1">Shad</option>
+                <option value="2">John</option>
+                <option value="3">Dwayne</option>
+                </select>
                 <button onClick={this.addNewCard}>
                     Add Card
             </button>
