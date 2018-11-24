@@ -7,13 +7,12 @@ class AddCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            _id: 0,
             title: '',
             body: '',
-            priority: '',
-            status: '',
-            createdBy: '',
-            AssignedTo: '',
+            priority_id: '',
+            status_id: '',
+            created_by: '',
+            assigned_to: '',
         };
         this.handleInput = this.handleInput.bind(this);
         this.addNewCard = this.addNewCard.bind(this);
@@ -29,16 +28,16 @@ class AddCard extends Component {
                 break;
 
             case "priority_id":
-                this.setState({ priority: event.target.value })
+                this.setState({ priority_id: event.target.value })
                 break;
             case "status_id":
-                this.setState({ status: event.target.value })
+                this.setState({ status_id: event.target.value })
                 break;
             case "created_by":
-                this.setState({ createdBy: event.target.value })
+                this.setState({ created_by: event.target.value })
                 break;
             case "assigned_to":
-                this.setState({ AssignedTo: event.target.value })
+                this.setState({ assigned_to: event.target.value })
                 break;
             default:
         }
@@ -49,10 +48,10 @@ class AddCard extends Component {
         const data = {
             title: this.state.title,
             body: this.state.body,
-            priority: this.state.priority_id,
-            status: this.state.status_id,
-            createdBy: this.state.created_by,
-            AssignedTo: this.state.assigned_to,
+            priority_id: this.state.priority_id,
+            status_id: this.state.status_id,
+            created_by: this.state.created_by,
+            assigned_to: this.state.assigned_to,
         }
         axios.post('/api/cards', data)
             .then(response => {
@@ -63,27 +62,27 @@ class AddCard extends Component {
                 this.setState({
                     title: '',
                     body: '',
-                    priority: '',
-                    status: '',
-                    createdBy: '',
-                    AssignedTo: ''
+                    priority_id: '',
+                    status_id: '',
+                    created_by: '',
+                    assigned_to: ''
                 })
             })
             .catch(err => {
                 console.log(err);
             })
     }
- 
+    
     render() {
         const { title, body, priority_id, status_id, created_by, assigned_to } = this.state
         return (
             <div className="add-card-form">
                 <input type="text" placeholder="title" id="title" value={title} onChange={this.handleInput} />
                 <input type="text" placeholder="body" id="body" value={body} onChange={this.handleInput} />
-                <input type="text" placeholder="priority" id="priority" value={priority_id} onChange={this.handleInput} />
-                <input type="text" placeholder="status" id="status" value={status_id} onChange={this.handleInput} />
-                <input type="text" placeholder="createdBy" id="createdBy" value={created_by} onChange={this.handleInput} />
-                <input type="text" placeholder="AssignedTo" id="AssignedTo" value={assigned_to} onChange={this.handleInput} />
+                <input type="text" placeholder="priority" id="priority_id" value={priority_id} onChange={this.handleInput} />
+                <input type="text" placeholder="status" id="status_id" value={status_id} onChange={this.handleInput} />
+                <input type="text" placeholder="created_by" id="created_by" value={created_by} onChange={this.handleInput} />
+                <input type="text" placeholder="assigned_to" id="assigned_to" value={assigned_to} onChange={this.handleInput} />
                 <button onClick={this.addNewCard}>
                     Add Card
             </button>

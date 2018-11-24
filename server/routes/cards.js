@@ -4,7 +4,9 @@ const Card = require('../db/models/card');
 
 router.route('/')
     .get((req, res) => {
-        return Card.fetchAll()
+        return Card.fetchAll({
+            withRelated: ['priority', 'status', 'created', 'assigned']
+        })
             .then(cards => {
                 return res.json(cards);
             })
