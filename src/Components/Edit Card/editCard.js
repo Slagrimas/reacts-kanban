@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import EditCardButton from '../../EditCardButton/EditCardButton';
 import { editCard } from '../../actions/cardActions';
 import { connect } from 'react-redux';
+
 
 
 class EditCard extends Component {
@@ -14,16 +14,13 @@ class EditCard extends Component {
       status_id: '',
       created_by: '',
       assigned_to: '',
-      editClick: false
     };
-
+    
     console.log('edit props', props);
     this.editThisCard = this.editThisCard.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.toggleEdit = this.handleInputChange.bind(this)
   }
-  //here we go here we go again.
-
+ 
   handleInputChange(event) {
     console.log('event.target', event.target);
     switch (event.target.id) {
@@ -70,15 +67,8 @@ class EditCard extends Component {
       assigned_to: '',
       editClick: true
     });
-    event.target = document.getElementsByClassName('EditCardForm-container');
-  }
 
-  toggleEdit(event){
-    this.setState({
-      editClick: !this.state.editClick
-    })
   }
-
 
 
   render() {
@@ -86,7 +76,6 @@ class EditCard extends Component {
     return (
       <div>
         <div className="EditCardForm-container">
-          <input type="number" placeholder="id" id="id" value={this.state.id} onChange={this.handleInputChange} />
           <input type="text" placeholder="title" id="title" value={this.state.title} onChange={this.handleInputChange} />
           <input type="text" placeholder="body" id="body" value={this.state.body} onChange={this.handleInputChange} />
           <select
@@ -130,11 +119,7 @@ class EditCard extends Component {
             <option value="2">John</option>
             <option value="3">Dwayne</option>
           </select>
-          <div>
-          <button id="edit_button" onClick={this.toggleEdit.bind(this)}> Edit </button>
-          {this.state.editClick && <editCard />}
-          </div>
-        </div>
+      </div>
       </div>
     );
   }
