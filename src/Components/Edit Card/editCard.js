@@ -3,7 +3,6 @@ import { editCard } from '../../actions/cardActions';
 import { connect } from 'react-redux';
 
 
-
 class EditCard extends Component {
   constructor(props) {
     super(props);
@@ -52,6 +51,7 @@ class EditCard extends Component {
 
   editThisCard(event) {
     const data = {
+      id: this.props.id,
       title: this.state.title,
       body: this.state.body,
       priority_id: this.state.priority_id,
@@ -62,6 +62,7 @@ class EditCard extends Component {
     console.log('data', data);
     this.props.editCard(data);
     this.setState({
+      // id: '',
       title: '',
       body: '',
       priority_id: '',
@@ -72,13 +73,12 @@ class EditCard extends Component {
 
   }
 
-
   render() {
-    //htmlFor property reflects the value of the for content property. That means that this script-accessible property is used to set and read the value of the content property for, which is the ID of the label's associated control element.
+
     return (
       <div>
         <div className="EditCardForm-container">
-          <input type="number" placeholder="id" id="id" value={this.state.id} onChange={this.handleInputChange} />
+          {/* <input type="number" placeholder="id" id="id" value={this.state.id} onChange={this.handleInputChange} /> */}
           <input type="text" placeholder="title" id="title" value={this.state.title} onChange={this.handleInputChange} />
           <input type="text" placeholder="body" id="body" value={this.state.body} onChange={this.handleInputChange} />
           <select
@@ -122,6 +122,7 @@ class EditCard extends Component {
             <option value="2">John</option>
             <option value="3">Dwayne</option>
           </select>
+          <button id="edit_submit" onClick={this.editThisCard} >Submit</button>
       </div>
       </div>
     );

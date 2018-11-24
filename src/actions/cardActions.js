@@ -35,14 +35,15 @@ export const addCard = card => {
 // }
 
 export const editCard = card => {
-    // console.log('card', card.id)
     return dispatch => {
-      return axios.put(`/api/cards/${card.id}`, card).then(response => {
-        // console.log('response', response);
+      return axios.put(`/api/cards/${card.id}`, card)
+      .then(response => {
         dispatch({
           type: EDIT_CARD,
           editCard: response.data
-        });
-      });
+          
+        })
+      })
+      .catch(err => console.log('this is console err', err))
     };
   };

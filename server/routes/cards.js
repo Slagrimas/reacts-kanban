@@ -51,7 +51,6 @@ router.route('/:id')
                 console.log('err.message', err.message);
             });
     })
-
     .put((req, res) => {
         let id = (req.params.id);
         const title = req.body.title;
@@ -77,16 +76,16 @@ router.route('/:id')
     .delete((req, res) => {
         const id = req.params.id;
         return new Card({ id: id })
-          .destroy()
-          .then(cards => {
-            return Card.fetchAll({
-              related: ['priority', 'status', 'created', 'assigned']
-            }).then(cards => {
-              res.json(cards);
-            });
-          })
-          .catch(err => console.log(err));
-      });
+            .destroy()
+            .then(cards => {
+                return Card.fetchAll({
+                    withRelated: ['priority', 'status', 'created', 'assigned']
+                }).then(cards => {
+                    res.json(cards);
+                });
+            })
+            .catch(err => console.log(err));
+    });
 
 module.exports = router;
 

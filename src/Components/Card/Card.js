@@ -1,26 +1,29 @@
 import React from 'react';
-import EditCard from '../Edit Card'
-
+import EditCard from '../Edit Card';
+import { editCard } from '../../actions/cardActions';
 
 class Card extends React.Component {
   constructor(props){
     super(props)
 
+  
     this.state ={
       editClick: false,
     }
     this.toggleEdit = this.toggleEdit.bind(this);
   }
 
+
   toggleEdit(event){
-    this.setState({
+    this.setState({ 
       editClick: !this.state.editClick
     })
   }
 
   render() {
-   const {title, body, priority, status, created, assigned} = this.props
+   const { id, title, body, priority, status, created, assigned } = this.props
     console.log('!!!!!!!!!!!!!!!!!!!!!', this.props)
+    
     return (
       <div className="card-entry">     
        <div className="title">Title: { title } </div>    
@@ -30,7 +33,7 @@ class Card extends React.Component {
        <div className="created_by">Created By: { created } </div>
        <div className="assigned_to">Assigned To: { assigned } </div> 
        <button id="edit_button" onClick={this.toggleEdit}>Edit</button>
-      {this.state.editClick && <EditCard />}
+      {this.state.editClick && <EditCard id={id}/>}
       </div> 
     )
   }

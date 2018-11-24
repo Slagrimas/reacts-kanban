@@ -17,6 +17,7 @@ const Column = props => {
                         console.log('this is card f_name', card.created.first_name);
                         return <Card
                             key={card.id}
+                            id={card.id}
                             title={card.title}
                             body={card.body}
                             priority={card.priority.name}

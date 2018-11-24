@@ -16,13 +16,15 @@ const cardList = (state = initialState, action) => {
         // case EDIT_CARD:
         //     return action.payload;
         case EDIT_CARD:
-      let zero = state[0];
-      state.map(card => {
-        if (card.id === Number(action.editCard.id)) {
-          state.splice(state.indexOf(card), 1);
-          state.push(action.editCard);
-        }
-      });
+        console.log('is state an array', state)
+    //  const actionCard = state.map(card => {
+        //   console.log('this is a card from reducer', card)
+        //   console.log('this is the action', action)
+        //   console.log('this is the edit card from reducer', editCar)
+    //     if (card.id === Number(action.editCard.id)) {
+    //         return[...action.editCard]
+    //     } 
+    //   });
       return [...state];
         default:
             return state
