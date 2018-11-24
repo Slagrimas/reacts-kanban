@@ -1,6 +1,6 @@
 import React from 'react';
 import EditCard from '../Edit Card';
-import { editCard } from '../../actions/cardActions';
+
 
 class Card extends React.Component {
   constructor(props){
@@ -22,7 +22,7 @@ class Card extends React.Component {
 
   render() {
    const { id, title, body, priority, status, created, assigned } = this.props
-    console.log('!!!!!!!!!!!!!!!!!!!!!', this.props)
+    // console.log('!!!!!!!!!!!!!!!!!!!!!', this.props)
     
     return (
       <div className="card-entry">     
