@@ -6,19 +6,22 @@ import AddCard from '../AddCard/AddCard';
 import EditCard from '../Edit Card/editCard';
 import { loadCards } from '../../actions/cardActions';
 import LoadingModal from '../../LoadingModal';
+import reducers from '../../reducers';
+
 
 class App extends Component {
 
   componentDidMount() {
     console.log('this is props', this.props)
+
       this.props.loadCards();
     }
   render() {
-    // const isLoading = this.props.isLoading.isLoading
+      // const isLoading = this.props.isLoading.isLoading;
     return (
       <div className="Components">
         <h1 className="Header">Shad's React Kanaban</h1>
-        <LoadingModal isLoading={true} />
+        <LoadingModal isLoading={false} />
         <Board cards={this.props.cards} />
         <AddCard />
         <EditCard />
@@ -29,7 +32,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    cards: state
+    cards: state,
+    isLoading: state.isLoading
   }
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../Card';
 
+
 const Column = props => {
     console.log('Column Props', props)
     return (
@@ -24,6 +25,7 @@ const Column = props => {
                             assigned={card.assigned.first_name}
                             className='card'
                         />
+                      
                     })
             }
         </div>

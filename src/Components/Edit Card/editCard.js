@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import EditCardButton from '../../EditCardButton/EditCardButton';
 import { editCard } from '../../actions/cardActions';
 import { connect } from 'react-redux';
+
 
 class EditCard extends Component {
   constructor(props) {
@@ -11,12 +13,14 @@ class EditCard extends Component {
       priority_id: '',
       status_id: '',
       created_by: '',
-      assigned_to: ''
+      assigned_to: '',
+      editClick: false
     };
 
     console.log('edit props', props);
     this.editThisCard = this.editThisCard.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.toggleEdit = this.handleInputChange.bind(this)
   }
   //here we go here we go again.
 
@@ -63,10 +67,19 @@ class EditCard extends Component {
       priority_id: '',
       status_id: '',
       created_by: '',
-      assigned_to: ''
+      assigned_to: '',
+      editClick: true
     });
     event.target = document.getElementsByClassName('EditCardForm-container');
   }
+
+  toggleEdit(event){
+    this.setState({
+      editClick: !this.state.editClick
+    })
+  }
+
+
 
   render() {
     //htmlFor property reflects the value of the for content property. That means that this script-accessible property is used to set and read the value of the content property for, which is the ID of the label's associated control element.
@@ -117,9 +130,10 @@ class EditCard extends Component {
             <option value="2">John</option>
             <option value="3">Dwayne</option>
           </select>
-          <button onClick={this.editThisCard}>
-            Edit Card
-            </button>
+          <div>
+          <button id="edit_button" onClick={this.toggleEdit.bind(this)}> Edit </button>
+          {this.state.editClick && <editCard />}
+          </div>
         </div>
       </div>
     );

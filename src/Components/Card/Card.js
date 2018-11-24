@@ -1,5 +1,6 @@
 import React from 'react';
-
+import EditCard from '../Edit Card'
+import EditCardButton from '../../EditCardButton/EditCardButton';
 
 const Card = ({title, body, priority, status, created, assigned})=>{
     return (
@@ -10,7 +11,6 @@ const Card = ({title, body, priority, status, created, assigned})=>{
       <div className="status">Status: { status } </div>
       <div className="created_by">Created By: { created } </div>
       <div className="assigned_to">Assigned To: { assigned } </div> 
-       
       </div> 
     )
 }
