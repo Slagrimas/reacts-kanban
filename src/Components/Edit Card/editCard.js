@@ -15,13 +15,13 @@ class EditCard extends Component {
       assigned_to: '',
     };
     
-    console.log('edit props', props);
+    // console.log('edit props', props);
     this.editThisCard = this.editThisCard.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
  
   handleInputChange(event) {
-    console.log('event.target', event.target);
+    // console.log('event.target', event.target);
     switch (event.target.id) {
       case 'id':
         this.setState({ id: event.value });
@@ -59,7 +59,7 @@ class EditCard extends Component {
       created_by: this.state.created_by,
       assigned_to: this.state.assigned_to,
     }
-    console.log('data', data);
+    // console.log('data', data);
     this.props.editCard(data);
     this.setState({
       // id: '',
@@ -78,7 +78,6 @@ class EditCard extends Component {
     return (
       <div>
         <div className="EditCardForm-container">
-          {/* <input type="number" placeholder="id" id="id" value={this.state.id} onChange={this.handleInputChange} /> */}
           <input type="text" placeholder="title" id="title" value={this.state.title} onChange={this.handleInputChange} />
           <input type="text" placeholder="body" id="body" value={this.state.body} onChange={this.handleInputChange} />
           <select

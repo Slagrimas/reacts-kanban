@@ -2,7 +2,7 @@ import React from 'react';
 import Column from '../Column'
 
 const Board = props => {
-    console.log('board props', props)
+    // console.log('board props', props)
     return (
 
         <div className="Board">
