@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 import { addCard } from "../../actions/cardActions";
 
 class AddCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            id: 0, 
             title: '',
             body: '',
             priority_id: '',
@@ -46,6 +46,7 @@ class AddCard extends Component {
     addNewCard(event) {
         event.preventDefault();
         const data = {
+            id: this.state.id,
             title: this.state.title,
             body: this.state.body,
             priority_id: this.state.priority_id,
@@ -70,6 +71,9 @@ class AddCard extends Component {
         const { title, body, priority_id, status_id, created_by, assigned_to } = this.state
         return (
             <div className="add-card-form">
+                <div className="idDiv">
+                <input readOnly type="text" id="id" value={this.state.id} />
+                </div>
                 <input type="text" placeholder="title" id="title" value={title} onChange={this.handleInput} />
                 <input type="text" placeholder="body" id="body" value={body} onChange={this.handleInput} />
                 <select id="priority_id" value={priority_id} onChange={this.handleInput} 

@@ -8,12 +8,11 @@ const initialState = [];
 const cardList = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_CARDS:
-
-            return [...action.cards]; 
+            return [...action.cards];
 
         case ADD_CARDS:
-            // console.log('this is action.card', action.card)
-            return [...state, action.card]
+        console.log(action.card)
+            return state = [...state, action.card]
 
         case EDIT_CARD:
             state.map(card => {
@@ -22,7 +21,7 @@ const cardList = (state = initialState, action) => {
                     state.push(action.editCard);
                 }
             });
-            
+
             return [...state];
 
         case DELETE_CARD:

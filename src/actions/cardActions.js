@@ -27,19 +27,20 @@ export const loadCards = () => {
 //         card
 //     }
 // }
-
-export const addCard = data => {
+export const addCard = card => {
+    console.log(card)
     return dispatch => {
-      axios.post('/api/cards', data).then(response => {
-        // console.log('response.data', response.data);
+       return axios.post(API_CARDS_URL, card)
+       .then(response => {
+        const card = response.data;
         dispatch({
-          type: ADD_CARDS,
-          card: response.data
-        });
-      });
-    };
-  };
-  
+            type: ADD_CARDS,
+            card
+        })
+       })
+       .catch(err => console.log(err))
+    }
+}
 
 export const editCard = card => {
     return dispatch => {

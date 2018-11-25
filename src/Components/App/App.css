@@ -11,6 +11,10 @@
   text-align: center;
 }
 
+.idDiv{
+  display: none;
+}
+
 .Components {
   margin: 10px 0;
   background-color: #282c34;
@@ -20,20 +24,24 @@
   justify-content: center;
   color: white;
 }
+
 .status-title{
   text-align: center;
   color: cyan;
 }
+
 .status-title:hover{
   transform: scale(1.5);
 }
+
 .status, .title{
   color: cyan;
 }
+
 .column-container{
 display: inline-block;
 width: 33%;
-height: 100%;
+position: relative;
 text-align: center;
 
 }
