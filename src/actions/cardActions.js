@@ -21,12 +21,25 @@ export const loadCards = () => {
     }
 }
 
-export const addCard = card => {
-    return {
-        type: ADD_CARDS,
-        card
-    }
-}
+// export const addCard = card => {
+//     return {
+//         type: ADD_CARDS,
+//         card
+//     }
+// }
+
+export const addCard = data => {
+    return dispatch => {
+      axios.post('/api/cards', data).then(response => {
+        // console.log('response.data', response.data);
+        dispatch({
+          type: ADD_CARDS,
+          card: response.data
+        });
+      });
+    };
+  };
+  
 
 export const editCard = card => {
     return dispatch => {

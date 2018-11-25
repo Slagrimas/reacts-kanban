@@ -53,11 +53,8 @@ class AddCard extends Component {
             created_by: this.state.created_by,
             assigned_to: this.state.assigned_to,
         }
-        axios.post('/api/cards', data)
-            .then(response => {
-                const card = response.data;
-
-                this.props.addCard(card)
+            
+                this.props.addCard(data)
 
                 this.setState({
                     title: '',
@@ -67,10 +64,6 @@ class AddCard extends Component {
                     created_by: '',
                     assigned_to: ''
                 })
-            })
-            .catch(err => {
-                console.log(err);
-            })
     }
     
     render() {
