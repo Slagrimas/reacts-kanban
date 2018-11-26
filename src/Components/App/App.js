@@ -3,10 +3,8 @@ import './App.css';
 import { connect } from 'react-redux';
 import Board from '../Board';
 import AddCard from '../AddCard/AddCard';
-import EditCard from '../Edit Card/editCard';
 import { loadCards } from '../../actions/cardActions';
 import LoadingModal from '../../LoadingModal';
-import reducers from '../../reducers';
 
 
 class App extends Component {

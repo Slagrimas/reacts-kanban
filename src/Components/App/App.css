@@ -44,6 +44,7 @@ width: 33%;
 position: relative;
 text-align: center;
 
+
 }
 
 .card-entry{
@@ -62,6 +63,13 @@ margin: 0 auto;
   background-color: #282c34;
 }
 
+#edit_submit{
+  color: cyan;
+  
+}
+#deleteBtn{
+  color: red;
+}
   .App-link {
     color: #61dafb;
   }

@@ -45,7 +45,7 @@ router.route('/:id')
         console.log('this is the id', id)
         return Card.query({ where: { id: id } })
             .fetchAll({
-                related: ['title', 'body', 'priority', 'status', 'created_by', 'assigned_to']
+                withRelated: ['title', 'body', 'priority', 'status', 'created_by', 'assigned_to']
             })
             .then(card => {
                 res.json(card);

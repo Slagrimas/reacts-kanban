@@ -1,17 +1,19 @@
 import React from 'react';
 import EditCard from '../Edit Card';
+import axios from 'axios';
 
 
 class Card extends React.Component {
   constructor(props){
     super(props)
-
+    console.log('this is the cards props', props)
     this.state ={
+      card: this.props, 
       editClick: false,
     }
     this.toggleEdit = this.toggleEdit.bind(this);
+    this.deleteCard = this.deleteCard.bind(this);
   }
-
 
   toggleEdit(event){
     this.setState({ 
@@ -19,7 +21,15 @@ class Card extends React.Component {
     })
   }
 
- 
+  deleteCard() {
+    axios.delete(`/api/cards/${this.props.id}`)
+      .then( response => {
+        const card = response.data;
+        this.props.deleteCard(card);
+      })
+      .catch( err => console.log(err));
+  }
+
   render() {
    const { id, title, body, priority, status, created, assigned } = this.props
     
