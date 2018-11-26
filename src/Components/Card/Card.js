@@ -25,7 +25,6 @@ class Card extends React.Component {
     axios.delete(`/api/cards/${this.props.id}`)
       .then( response => {
         const card = response.data;
-        this.props.deleteCard(card);
       })
       .catch( err => console.log(err));
   }

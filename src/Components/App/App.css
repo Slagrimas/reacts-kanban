@@ -9,8 +9,8 @@
 
 .Header{
   text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 .idDiv{
   display: none;
@@ -29,9 +29,9 @@
 .status-title{
   text-align: center;
   color: cyan;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
 }
-
-
 
 .status-title:hover{
   transform: scale(1.5);
@@ -58,6 +58,7 @@ width: 350px;
 height: 200px;
 margin: 0 auto;
 animation: blinker 1s linear infinite;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 @keyframes blinker { 
@@ -71,10 +72,12 @@ animation: blinker 1s linear infinite;
 
 #edit_submit{
   color: cyan;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   
 }
 #deleteBtn{
   color: red;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
   .App-link {
     color: #61dafb;
@@ -92,9 +95,11 @@ animation: blinker 1s linear infinite;
 .add-card-form{
   text-align: center;
   margin-top: 150px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .EditCardForm-container{
   text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
