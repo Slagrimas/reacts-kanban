@@ -11,6 +11,7 @@
   text-align: center;
 }
 
+
 .idDiv{
   display: none;
 }
@@ -30,6 +31,8 @@
   color: cyan;
 }
 
+
+
 .status-title:hover{
   transform: scale(1.5);
 }
@@ -43,8 +46,6 @@ display: inline-block;
 width: 33%;
 position: relative;
 text-align: center;
-
-
 }
 
 .card-entry{
@@ -56,6 +57,11 @@ transition: transform .2s;
 width: 350px;
 height: 200px;
 margin: 0 auto;
+animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker { 
+  50% { border-color: cyan; } 
 }
 
 .card-entry:hover {

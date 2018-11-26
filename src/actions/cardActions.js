@@ -54,17 +54,3 @@ export const editCard = card => {
             .catch(err => console.log('this is console err', err))
     };
 };
-
-export const deleteCard = (card) => {
-    console.log("card", card);
-    return dispatch => {
-      axios.put("/deleteCard", card)
-        .then(responseFromDB => {
-          console.log("DID IT DELETE FROM DB:", responseFromDB.data)
-          dispatch({ type: DELETE_CARD, payload: responseFromDB.data });
-        })
-        .catch(err => {
-          console.log("ERROR - actions deleteTask:", err);
-        })
-    }
-  }
