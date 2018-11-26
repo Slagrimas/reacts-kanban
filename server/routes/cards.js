@@ -27,8 +27,7 @@ router.route('/')
         })
             .save()
             .then(card => {
-                return card.refresh({withRelated:['title', 'body', 'priority', 'status', 'created_by', 'assigned_to']
-            })
+                return card.refresh({ withRelated: ['priority', 'status', 'created', 'assigned'] })
             })
             .then(card => {
                 return res.json(card);

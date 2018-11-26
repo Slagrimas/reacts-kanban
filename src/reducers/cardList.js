@@ -11,7 +11,7 @@ const cardList = (state = initialState, action) => {
             return [...action.cards];
 
         case ADD_CARDS:
-        console.log(action.card)
+            console.log(action.card)
             return state = [...state, action.card]
 
         case EDIT_CARD:
@@ -24,8 +24,6 @@ const cardList = (state = initialState, action) => {
 
             return [...state];
 
-        case DELETE_CARD:
-            return [...action.cards];
 
         default:
             return state

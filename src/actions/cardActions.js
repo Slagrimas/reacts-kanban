@@ -55,13 +55,3 @@ export const editCard = card => {
     };
 };
 
-export const deleteCard = card => {
-    return dispatch => {
-        return axios.delete(`/api/cards/${card}`).then(response => {
-            dispatch({
-                type: DELETE_CARD,
-                cards: response.data
-            });
-        });
-    };
-};

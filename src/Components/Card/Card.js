@@ -1,6 +1,7 @@
 import React from 'react';
 import EditCard from '../Edit Card';
 
+
 class Card extends React.Component {
   constructor(props){
     super(props)
@@ -18,6 +19,7 @@ class Card extends React.Component {
     })
   }
 
+ 
   render() {
    const { id, title, body, priority, status, created, assigned } = this.props
     
@@ -31,6 +33,7 @@ class Card extends React.Component {
        <div className="assigned_to">Assigned To: { assigned } </div>      
        <button id="edit_button" onClick={this.toggleEdit}>Edit</button>
       {this.state.editClick && <EditCard id={id}/>}
+      <button id="deleteBtn" type="button" onClick={this.deleteCard}>Delete</button>
       </div> 
     )
   }
