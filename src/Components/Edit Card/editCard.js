@@ -7,19 +7,18 @@ class EditCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
+      title: '', 
       body: '',
       priority_id: '',
       status_id: '',
       created_by: '',
       assigned_to: '',
     };
-    
     // console.log('edit props', props);
     this.editThisCard = this.editThisCard.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
- 
+
   handleInputChange(event) {
     // console.log('event.target', event.target);
     switch (event.target.id) {
@@ -62,7 +61,6 @@ class EditCard extends Component {
     // console.log('data', data);
     this.props.editCard(data);
     this.setState({
-      // id: '',
       title: '',
       body: '',
       priority_id: '',
@@ -70,11 +68,9 @@ class EditCard extends Component {
       created_by: '',
       assigned_to: '',
     });
-
   }
 
   render() {
-
     return (
       <div>
         <div className="EditCardForm-container">
@@ -122,7 +118,7 @@ class EditCard extends Component {
             <option value="3">Dwayne</option>
           </select>
           <button id="edit_submit" onClick={this.editThisCard} >Submit</button>
-      </div>
+        </div>
       </div>
     );
   }

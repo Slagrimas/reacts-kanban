@@ -5,7 +5,6 @@ export const EDIT_CARD = 'EDIT_CARD';
 export const DELETE_CARD = 'DELETE_CARD';
 const API_CARDS_URL = '/api/cards';
 
-
 export const loadCards = () => {
     return dispatch => {
         return axios.get(API_CARDS_URL)
@@ -21,12 +20,6 @@ export const loadCards = () => {
     }
 }
 
-// export const addCard = card => {
-//     return {
-//         type: ADD_CARDS,
-//         card
-//     }
-// }
 export const addCard = card => {
     console.log(card)
     return dispatch => {
@@ -54,3 +47,17 @@ export const editCard = card => {
             .catch(err => console.log('this is console err', err))
     };
 };
+
+export const deleteCard = (card) => {
+    console.log('actions deleteCard', card)
+    return dispatch => {
+      axios.put('/deleteCard', card)
+      .then( response => {
+        console.log('response', response)
+        dispatch({ type: DELETE_CARD, payload: response.data })
+      })
+      .catch( err => {
+        console.log('error actions deleteItem', err)
+      })
+    }
+  }

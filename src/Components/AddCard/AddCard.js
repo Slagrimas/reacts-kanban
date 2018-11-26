@@ -6,7 +6,7 @@ class AddCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id: 0, 
+            id: 0,
             title: '',
             body: '',
             priority_id: '',
@@ -54,51 +54,51 @@ class AddCard extends Component {
             created_by: this.state.created_by,
             assigned_to: this.state.assigned_to,
         }
-            
-                this.props.addCard(data)
 
-                this.setState({
-                    title: '',
-                    body: '',
-                    priority_id: '',
-                    status_id: '',
-                    created_by: '',
-                    assigned_to: ''
-                })
+        this.props.addCard(data)
+
+        this.setState({
+            title: '',
+            body: '',
+            priority_id: '',
+            status_id: '',
+            created_by: '',
+            assigned_to: ''
+        })
     }
-    
+
     render() {
         const { title, body, priority_id, status_id, created_by, assigned_to } = this.state
         return (
             <div className="add-card-form">
                 <div className="idDiv">
-                <input readOnly type="text" id="id" value={this.state.id} />
+                    <input readOnly type="text" id="id" value={this.state.id} />
                 </div>
                 <input type="text" placeholder="title" id="title" value={title} onChange={this.handleInput} />
                 <input type="text" placeholder="body" id="body" value={body} onChange={this.handleInput} />
-                <select id="priority_id" value={priority_id} onChange={this.handleInput} 
+                <select id="priority_id" value={priority_id} onChange={this.handleInput}
                 > <option value="">Priority?</option>
-                <option value="1">High</option>
-                <option value="2">Medium</option>
-                <option value="3">Low</option>
+                    <option value="1">High</option>
+                    <option value="2">Medium</option>
+                    <option value="3">Low</option>
                 </select>
-                <select id="status_id" value={status_id} onChange={this.handleInput} 
+                <select id="status_id" value={status_id} onChange={this.handleInput}
                 > <option value="">Status?</option>
-                <option value="1">Queue</option>
-                <option value="2">In Progress</option>
-                <option value="3">Done</option>
+                    <option value="1">Queue</option>
+                    <option value="2">In Progress</option>
+                    <option value="3">Done</option>
                 </select>
-                <select id="created_by" value={created_by} onChange={this.handleInput} 
+                <select id="created_by" value={created_by} onChange={this.handleInput}
                 > <option value="">Created By ?</option>
-                <option value="1">Shad</option>
-                <option value="2">John</option>
-                <option value="3">Dwayne</option>
+                    <option value="1">Shad</option>
+                    <option value="2">John</option>
+                    <option value="3">Dwayne</option>
                 </select>
-                <select id="assigned_to" value={assigned_to} onChange={this.handleInput} 
+                <select id="assigned_to" value={assigned_to} onChange={this.handleInput}
                 > <option value="">Assign To?</option>
-                <option value="1">Shad</option>
-                <option value="2">John</option>
-                <option value="3">Dwayne</option>
+                    <option value="1">Shad</option>
+                    <option value="2">John</option>
+                    <option value="3">Dwayne</option>
                 </select>
                 <button onClick={this.addNewCard}>
                     Add Card

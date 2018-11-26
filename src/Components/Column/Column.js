@@ -7,7 +7,7 @@ const Column = props => {
     return (
         <div className="column-container">
             <h4 className="status-title"> {props.title} </h4>
-            {  
+            {
                 props.cards
                     .filter(card => {
                         return props.status === card.status_id
@@ -26,11 +26,10 @@ const Column = props => {
                             assigned={card.assigned.first_name}
                             className='card'
                         />
-                      
                     })
             }
         </div>
     )
 }
 
-export default Column;
+export default Column; 

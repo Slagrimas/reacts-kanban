@@ -1,7 +1,7 @@
 import { LOAD_CARDS } from "../actions/cardActions";
 import { ADD_CARDS } from "../actions/cardActions";
 import { EDIT_CARD } from "../actions/cardActions";
-
+import { DELETE_CARD } from "../actions/cardActions";
 
 const initialState = [];
 
@@ -21,7 +21,10 @@ const cardList = (state = initialState, action) => {
                     state.push(action.editCard);
                 }
             });
-            
+
+        case DELETE_CARD:
+            return [...state], action.payload
+
         default:
             return state
     }
