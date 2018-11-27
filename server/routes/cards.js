@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Card = require('../db/models/card');
 
+
 router.route('/')
     .get((req, res) => {
         return Card.fetchAll({
@@ -63,11 +64,12 @@ router.route('/:id')
         // const created_by = req.body.created_by;
         // const assigned_to = req.body.assigned_to;
         const { id, title, body, priority_id, status_id, created_by, assigned_to } = req.body;
-        const parsedId = parseInt(id);
-        const parsedStatus = parseInt(status_id);
-        const parsedPriority = parseInt(priority_id);
-        const parsedCreated = parseInt(created_by);
-        const parsedAssigned = parseInt(assigned_to);
+        console.log('req body', req.body)
+        const parsedId = (id);
+        const parsedStatus = (status_id);
+        const parsedPriority = (priority_id);
+        const parsedCreated = (created_by);
+        const parsedAssigned = (assigned_to);
 
         return new Card()
             .where({ id: parsedId })
@@ -89,35 +91,21 @@ router.route('/:id')
                     })
                     .catch(err => console.log(err));
             })
+    })
 
-            //     return new Card({ id: parsedId })
-            //         .save({ title, body, priority_id, status_id, created_by, assigned_to })
-            //         .then(response => {
-            //             return response.refresh({
-            //                 withRelated: ['priority', 'status', 'created', 'assigned']
-            //             });
-            //         })
-            //         .then(cards => {
-            //             res.json(cards);
-            //         })
-            //         .catch(err => {
-            //             console.log('err.message', err.message);
-            //         });
+    .delete((req, res) => {
+        // console.log('this is req', req)
+        const id = req.params.id;
+        return new Card({ id: id })
+            .destroy()
+            .then(cards => {
+                return Card.fetchAll({
+                    withRelated: ['priority', 'status', 'created', 'assigned']
+                }).then(cards => {
+                    res.json(cards);
+                });
             })
+            .catch(err => console.log('route error', err));
+    });
 
-            .delete((req, res) => {
-                // console.log('this is req', req)
-                const id = req.params.id;
-                return new Card({ id: id })
-                    .destroy()
-                    .then(cards => {
-                        return Card.fetchAll({
-                            withRelated: ['priority', 'status', 'created', 'assigned']
-                        }).then(cards => {
-                            res.json(cards);
-                        });
-                    })
-                    .catch(err => console.log('route error', err));
-            });
-
-        module.exports = router;
+module.exports = router;

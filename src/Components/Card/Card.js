@@ -36,8 +36,8 @@ class Card extends React.Component {
       id: this.state.id,
       title: this.state.title,
       body: this.state.body,
-      priority: this.state.priority_id,
-      status: this.state.status_id - 1,
+      priority_id: this.state.priority_id,
+      status_id: this.state.status_id - 1,
       created_by: this.state.created_by,
       assigned_to: this.state.assigned_to
     }
@@ -51,8 +51,8 @@ class Card extends React.Component {
       id: this.state.id,
       title: this.state.title,
       body: this.state.body,
-      priority: this.state.priority_id,
-      status: this.state.status_id + 1,
+      priority_id: this.state.priority_id,
+      status_id: this.state.status_id + 1,
       created_by: this.state.created_by,
       assigned_to: this.state.assigned_to
     }
@@ -75,10 +75,10 @@ class Card extends React.Component {
 
     <div className="moveCard">
                {statusId > 1 && ( <button className="left" id="move_left" onClick={this.leftClick}>
-                 <p> <i className="arrow left"></i></p>
+                 <p> <i className="arrowleft"></i></p>
                </button>)}
                {statusId <= 2 && ( <button className="right" id="move_right" onClick={this.rightClick}>
-                 <p> <i className="arrow right"></i></p>
+                 <p> <i className="arrowright"></i></p>
                </button>) }
              </div>
         <button id="edit_button" onClick={this.toggleEdit}>Edit</button>
@@ -88,15 +88,22 @@ class Card extends React.Component {
     )
   }
 }
-const mapDispatchToProps = dispatch => {
+
+const mapStateToProps = (state) => {
   return {
-      deleteCard: (card) => {
-          dispatch(deleteCard(card));
-      },
-        editCard: (card) => {
-            dispatch(editCard(card));
-        }
+    cards: state
   }
 }
 
-export default connect(null, mapDispatchToProps)(Card);
+const mapDispatchToProps = dispatch => {
+  return {
+    editCard: (card) => {
+        dispatch(editCard(card));
+    },
+      deleteCard: (card) => {
+          dispatch(deleteCard(card));
+      }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);

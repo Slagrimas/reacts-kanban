@@ -11,6 +11,7 @@ class Status extends bookshelf.Model {
   status() {
     return this.hasMany('Card', 'status_id');
   }
+  
 }
 
 module.exports = bookshelf.model('Status', Status);
