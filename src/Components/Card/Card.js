@@ -37,11 +37,11 @@ class Card extends React.Component {
         <div className="status">Status: {status} </div>
         <div className="created_by">Created By: {created} </div>
         <div className="assigned_to">Assigned To: {assigned} </div>
-        <button id="leftArrow" onClick={this.leftClick}>Move Left</button>
+        <i className="arrow left" onClick={this.leftClick}></i>
         <button id="edit_button" onClick={this.toggleEdit}>Edit</button>
         {this.state.editClick && <EditCard id={id} />}
         <button id="deleteBtn" type="button" onClick={() => { this.props.deleteCard(id) }}>Delete</button>
-        <button id="rightArrow" onClick={this.rightClick}>Move Right</button>
+        <i className="arrow right" onClick={this.rightClick}></i>
       </div>
     )
   }
