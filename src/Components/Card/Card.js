@@ -19,7 +19,7 @@ class Card extends React.Component {
       assigned_to: props.assigned_to,
       assign: props.assign
     }
-  
+  //touching me touching you sweet caroline 
     this.toggleEdit = this.toggleEdit.bind(this);
     this.leftClick = this.leftClick.bind(this);
     this.rightClick = this.rightClick.bind(this);
