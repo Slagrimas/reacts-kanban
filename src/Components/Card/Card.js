@@ -66,7 +66,6 @@ class Card extends React.Component {
     const statusId = this.props.status_id
     return (
       <div className="card-entry">
-       {/* <div className="id">id: {id} </div> */}
         <div className="title">Inoa: {title} </div>
         <div className="body">KANAWAI: {body} </div>
         <div className="priority">Ka mea nui: {priority} </div>

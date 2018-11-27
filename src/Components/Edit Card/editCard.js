@@ -16,13 +16,11 @@ class EditCard extends Component {
       created_by: props.data.created_by,
       assigned_to: props.data.assigned_to,
     };
-    // console.log('edit props', props);
     this.editThisCard = this.editThisCard.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   handleInputChange(event) {
-    // console.log('event.target', event.target);
     switch (event.target.id) {
       case 'id':
         this.setState({ id: event.value });
@@ -60,16 +58,8 @@ class EditCard extends Component {
       created_by: this.state.created_by,
       assigned_to: this.state.assigned_to,
     }
-    // console.log('data', data);
+
     this.props.editCard(data);
-    // this.setState({
-    //   title: '',
-    //   body: '',
-    //   priority_id: '',
-    //   status_id: '',
-    //   created_by: '',
-    //   assigned_to: '',
-    // });
   }
 
   render() {
@@ -126,12 +116,6 @@ class EditCard extends Component {
     );
   }
 }
-
-// const mapStateToProps = state => {
-//   return {
-//     cards: state.EditCard
-//   };
-// };
 
 const mapDispatchToProps = dispatch => {
   return {

@@ -10,11 +10,10 @@ import LoadingModal from '../../LoadingModal';
 class App extends Component {
 
   componentDidMount() {
-    // console.log('this is propssss', this.props)
     this.props.loadCards();
   }
   render() {
-    // const isLoading = this.props.isLoading.isLoading;
+
     return (
       <div className="Components">
         <h1 className="Header">He hōʻailona</h1>

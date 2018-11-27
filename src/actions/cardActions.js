@@ -9,7 +9,6 @@ export const loadCards = () => {
     return dispatch => {
         return axios.get(API_CARDS_URL)
             .then(response => {
-                // console.log('this is the response data', response.data)
                 const cards = response.data;
                 dispatch({
                     type: LOAD_CARDS,
