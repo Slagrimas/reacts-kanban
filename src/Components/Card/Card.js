@@ -67,13 +67,13 @@ class Card extends React.Component {
     return (
       <div className="card-entry">
        {/* <div className="id">id: {id} </div> */}
-        <div className="title">Title: {title} </div>
-        <div className="body">Body: {body} </div>
-        <div className="priority">Priority: {priority} </div>
-        <div className="status">Status: {status} </div>
-        <div className="created_by">Created By: {created} </div>
-        <div className="assigned_to">Assigned To: {assigned} </div>
-        
+        <div className="title">Inoa: {title} </div>
+        <div className="body">KANAWAI: {body} </div>
+        <div className="priority">Ka mea nui: {priority} </div>
+        <div className="status">kūlana: {status} </div>
+        <div className="created_by">ua hana 'ia e: {created} </div>
+        <div className="assigned_to">hāʻawiʻia i: {assigned} </div>
+
     <div className="moveCard">
                {statusId > 1 && ( <button className="left" id="move_left" onClick={this.leftClick}>
                  <p> <i className="arrowleft"></i></p>
