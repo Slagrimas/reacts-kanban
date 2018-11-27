@@ -17,7 +17,7 @@ class App extends Component {
     // const isLoading = this.props.isLoading.isLoading;
     return (
       <div className="Components">
-        <h1 className="Header">Shad's React Kanaban</h1>
+        <h1 className="Header">He hōʻailona</h1>
         <LoadingModal isLoading={false} />
         <Board cards={this.props.cards} />
         <AddCard />

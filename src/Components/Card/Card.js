@@ -19,6 +19,7 @@ class Card extends React.Component {
       assigned_to: props.assigned_to,
       assign: props.assign
     }
+  
     this.toggleEdit = this.toggleEdit.bind(this);
     this.leftClick = this.leftClick.bind(this);
     this.rightClick = this.rightClick.bind(this);
@@ -72,7 +73,7 @@ class Card extends React.Component {
         <div className="status">Status: {status} </div>
         <div className="created_by">Created By: {created} </div>
         <div className="assigned_to">Assigned To: {assigned} </div>
-
+        
     <div className="moveCard">
                {statusId > 1 && ( <button className="left" id="move_left" onClick={this.leftClick}>
                  <p> <i className="arrowleft"></i></p>
@@ -88,7 +89,6 @@ class Card extends React.Component {
     )
   }
 }
-
 const mapStateToProps = (state) => {
   return {
     cards: state
