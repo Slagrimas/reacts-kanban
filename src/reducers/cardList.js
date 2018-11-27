@@ -21,7 +21,8 @@ const cardList = (state = initialState, action) => {
                     state.push(action.editCard);
                 }
             });
-
+            break;
+        
         case DELETE_CARD:
             return [...action.cards];
 
@@ -31,4 +32,3 @@ const cardList = (state = initialState, action) => {
 }
 
 export default cardList;
-

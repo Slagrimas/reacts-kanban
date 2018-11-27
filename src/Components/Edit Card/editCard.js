@@ -117,6 +117,7 @@ class EditCard extends Component {
             <option value="2">John</option>
             <option value="3">Dwayne</option>
           </select>
+          
           <button id="edit_submit" onClick={this.editThisCard} >Submit</button>
         </div>
       </div>
