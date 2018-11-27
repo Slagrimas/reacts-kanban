@@ -48,16 +48,13 @@ export const editCard = card => {
     };
 };
 
-export const deleteCard = (card) => {
-    console.log('actions deleteCard', card)
+export const deleteCard = card => {
     return dispatch => {
-      axios.put('/deleteCard', card)
-      .then( response => {
-        console.log('response', response)
-        dispatch({ type: DELETE_CARD, payload: response.data })
-      })
-      .catch( err => {
-        console.log('error actions deleteItem', err)
-      })
-    }
-  }
+      return axios.delete(`/api/cards/${card}`).then(response => {
+        dispatch({
+          type: DELETE_CARD,
+          cards: response.data
+        });
+      });
+    };
+  };

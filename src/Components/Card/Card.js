@@ -1,33 +1,24 @@
 import React from 'react';
 import EditCard from '../Edit Card';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { deleteCard } from '../../actions/cardActions';
+
 
 class Card extends React.Component {
   constructor(props) {
     super(props)
-    console.log('this is the cards props', props)
+    // console.log('this is the cards props', props)
     this.state = {
       card: this.props,
       editClick: false,
     }
     this.toggleEdit = this.toggleEdit.bind(this);
-    this.deleteCard = this.deleteCard.bind(this);
   }
 
   toggleEdit(event) {
     this.setState({
       editClick: !this.state.editClick
     })
-  }
-
-  deleteCard() {
-    axios.delete(`/api/cards/${this.props.id}`)
-      .then(response => {
-        const card = response.data;
-        console.log('succesful delete')
-        return card;
-      })
-      .catch(err => console.log(err));
   }
 
   render() {
@@ -42,10 +33,18 @@ class Card extends React.Component {
         <div className="assigned_to">Assigned To: {assigned} </div>
         <button id="edit_button" onClick={this.toggleEdit}>Edit</button>
         {this.state.editClick && <EditCard id={id} />}
-        <button id="deleteBtn" type="button" onClick={this.deleteCard}>Delete</button>
+        <button id="deleteBtn" type="button" onClick={() => { this.props.deleteCard(id) }}>Delete</button>
       </div>
     )
   }
 }
 
-export default Card;
+const mapDispatchToProps = dispatch => {
+  return {
+      deleteCard: (card) => {
+          dispatch(deleteCard(card));
+      }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Card);

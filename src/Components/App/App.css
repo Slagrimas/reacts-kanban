@@ -57,12 +57,12 @@ transition: transform .2s;
 width: 350px;
 height: 200px;
 margin: 0 auto;
-animation: blinker 1s linear infinite;
+animation: blinker 2s linear infinite;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 @keyframes blinker { 
-  50% { border-color: cyan; } 
+  65% { border-color: cyan; } 
 }
 
 .card-entry:hover {

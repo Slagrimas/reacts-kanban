@@ -87,7 +87,7 @@ router.route('/:id')
                     res.json(cards);
                 });
             })
-            .catch(err => console.log(err));
+            .catch(err => console.log('route error', err));
     });
 
 module.exports = router;

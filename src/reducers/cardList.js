@@ -23,7 +23,7 @@ const cardList = (state = initialState, action) => {
             });
 
         case DELETE_CARD:
-            return [...state], action.payload
+            return [...action.cards];
 
         default:
             return state
