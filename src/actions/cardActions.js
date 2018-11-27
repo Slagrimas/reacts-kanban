@@ -39,9 +39,10 @@ export const editCard = card => {
     return dispatch => {
         return axios.put(`/api/cards/${card.id}`, card)
             .then(response => {
+                const card = response.data;
                 dispatch({
                     type: EDIT_CARD,
-                    editCard: response.data
+                    card
                 })
             })
             .catch(err => console.log('this is console err', err))

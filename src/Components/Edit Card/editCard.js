@@ -5,14 +5,16 @@ import { connect } from 'react-redux';
 
 class EditCard extends Component {
   constructor(props) {
+      console.log('this is propssss', props.data)
     super(props);
     this.state = {
-      title: '', 
-      body: '',
-      priority_id: '',
-      status_id: '',
-      created_by: '',
-      assigned_to: '',
+      id: props.data.id,
+      title: props.data.title, 
+      body: props.data.body,
+      priority_id: props.data.priority_id,
+      status_id: props.data.status_id,
+      created_by: props.data.created_by,
+      assigned_to: props.data.assigned_to,
     };
     // console.log('edit props', props);
     this.editThisCard = this.editThisCard.bind(this);
@@ -50,24 +52,24 @@ class EditCard extends Component {
 
   editThisCard(event) {
     const data = {
-      id: this.props.id,
+      id: this.state.id,
       title: this.state.title,
       body: this.state.body,
-      priority_id: this.state.priority_id,
-      status_id: this.state.status_id,
+      priority: this.state.priority_id,
+      status: this.state.status_id,
       created_by: this.state.created_by,
       assigned_to: this.state.assigned_to,
     }
     // console.log('data', data);
     this.props.editCard(data);
-    this.setState({
-      title: '',
-      body: '',
-      priority_id: '',
-      status_id: '',
-      created_by: '',
-      assigned_to: '',
-    });
+    // this.setState({
+    //   title: '',
+    //   body: '',
+    //   priority_id: '',
+    //   status_id: '',
+    //   created_by: '',
+    //   assigned_to: '',
+    // });
   }
 
   render() {
@@ -125,11 +127,11 @@ class EditCard extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    cards: state.EditCard
-  };
-};
+// const mapStateToProps = state => {
+//   return {
+//     cards: state.EditCard
+//   };
+// };
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -140,6 +142,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  mapStateToProps,
+  // mapStateToProps,
+  null, 
   mapDispatchToProps
 )(EditCard);

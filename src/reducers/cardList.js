@@ -15,13 +15,8 @@ const cardList = (state = initialState, action) => {
             return state = [...state, action.card]
 
         case EDIT_CARD:
-            state.map(card => {
-                if (card.id === action.editCard.id) {
-                    state.splice(state.indexOf(card), 1);
-                    state.push(action.editCard);
-                }
-            });
-            break;
+            return [...state.filter(card => card.id !== action.card.id), Object.assign({}, action.card)]
+            
         
         case DELETE_CARD:
             return [...action.cards];
